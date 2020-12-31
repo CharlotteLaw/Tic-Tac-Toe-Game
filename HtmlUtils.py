@@ -296,3 +296,213 @@ align:center;
 </body>
 
 </html>'''
+
+    def getLoginPage1(self):
+        return '''
+            
+            <style>
+            div..
+            width: 450px;
+            height: 115px;
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 400%;
+            ...
+        
+            h1..
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 250%;
+            ...
+            
+            h2..
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 180%;
+            ...
+            
+            </style>
+        
+            <br>
+            <br>
+
+
+            <div class="highlight3" style="background: linear-gradient(to bottom, lightblue 0%, white 80%)">Tic Tac Toe!</div><br>
+        
+        
+        
+            <h1>Hello there! {} successfully logged in.</h1><br>
+            <h2>Click <a href="/account">account</a> to go to the account screen to start playing! </h2>
+            
+            '''
+
+    def getRegisterPage1(self):
+        return '''
+
+            <style>
+            div..
+            width: 450px;
+            height: 115px;
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 400%;
+            ...
+
+            h1..
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 250%;
+            ...
+
+            h2..
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 200%;
+            ...
+
+            </style>
+
+            <br>
+            <br>
+
+
+            <div class="highlight3" style="background: linear-gradient(to bottom, lightblue 0%, white 80%)">Tic Tac Toe!</div><br>
+
+
+
+            <h2>Welcome! {} successfully registered for an account.</h2>
+            <h2>Click <a href="/">login</a> to go back to the login screen. </h2>
+
+            '''
+
+    def getRegisterFail(self):
+        return '''
+
+            <style>
+            div..
+            width: 450px;
+            height: 115px;
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 400%;
+            ...
+
+            h1..
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 250%;
+            ...
+
+            h2..
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 200%;
+            ...
+
+            </style>
+
+            <br>
+            <br>
+
+
+            <div class="highlight3" style="background: linear-gradient(to bottom, lightblue 0%, white 80%)">Tic Tac Toe!</div><br>
+
+
+
+            <h1>Sorry, username {} is already taken.</h1>
+            <h2>Click <a href="/">register</a> to go back to the registration screen.</h2>
+
+            '''
+
+    def getCreatePage(self):
+        return '''
+
+            <style>
+            div..
+            width: 450px;
+            height: 115px;
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 400%;
+            ...
+
+            h1..
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 250%;
+            ...
+
+            h2..
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 180%;
+            ...
+
+            </style>
+
+            <br>
+            <br>
+
+
+            <div class="highlight3" style="background: linear-gradient(to bottom, lightblue 0%, white 80%)">Tic Tac Toe!</div><br>
+
+
+
+            <h1>{} successfully created a Tic Tac Toe game.</h1><br>
+            <h2>Click <a href="/account">account</a> to go to the account screen to start playing the game!</h2>
+
+            '''
+
+    def getLoginFail(self):
+        return '''
+
+            <style>
+            div..
+            width: 450px;
+            height: 115px;
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 400%;
+            ...
+
+            h1..
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 250%;
+            ...
+
+            h2..
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 180%;
+            ...
+
+            </style>
+
+            <br>
+            <br>
+
+
+            <div class="highlight3" style="background: linear-gradient(to bottom, lightblue 0%, white 80%)">Tic Tac Toe!</div><br>
+
+
+
+            <h1>Incorrect password or username.</h1><br>
+            <h2>Click <a href="/">login</a> to go back to the log in screen!</h2>
+
+            '''

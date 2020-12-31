@@ -26,11 +26,11 @@ class GameDb:
         connection = self.getConn()
         user = connection.execute('SELECT * FROM users WHERE username = ?', [username]).fetchall()
         if user :
-            return 'Sorry, username {} is taken'.format(username)
+            return False
         else :
             connection.execute('INSERT INTO users VALUES (?, ?, ?, ?, ?, ?)', [username, password, 0, 0, 0, '0,1'])
             connection.commit()
-            return 'Congratulations, username {} been successfully registered'.format(username)
+            return True
 
     def isValidUser(self, un, pw):
         connection = self.getConn()

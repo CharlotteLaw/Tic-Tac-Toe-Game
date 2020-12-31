@@ -24,9 +24,25 @@ def application(environ, start_response):
 
     if path == '/register' and un and pw:
         result = gameDb.registerUser(un, pw)
-        result += ' <a href="/">Login</a>'
         start_response('200 OK', headers)
-        return [result.encode()]
+
+        if result == True:
+            page = htmlUtils.getRegisterPage1().format(un)
+            page = page.replace('...', '}')
+            page = page.replace('..', '{')
+            return [page.encode()]
+
+        else:
+            #return 'Sorry, username {} is taken'.format(un)
+            page = htmlUtils.getRegisterFail().format(un)
+            page = page.replace('...', '}')
+            page = page.replace('..', '{')
+            return [page.encode()]
+
+        #return [result.encode()]
+       # return [page.encode()]
+
+       # return [result.encode()]
 
     elif path == '/login' and un and pw:
         user = gameDb.login(un, pw)
@@ -37,11 +53,23 @@ def application(environ, start_response):
             headers.append(('Set-Cookie', 'score={}:{}'.format(win, lose)))
             headers.append(('Set-Cookie', 'username={}'.format(un)))
             start_response('200 OK', headers)
-            return ['User {} successfully logged in. <a href="/account">Account</a>'.format(un).encode()]
+            #return ['User {} successfully logged in. <a href="/account">Account</a>'.format(un).encode()]
+
+            page = htmlUtils.getLoginPage1().format(un)
+
+            page = page.replace('...', '}')
+            page = page.replace('..', '{')
+
             return [page.encode()]
+
         else:
             start_response('200 OK', headers)
-            return ['Incorrect username or password'.encode()]
+            page = htmlUtils.getLoginFail().format(un)
+
+            page = page.replace('...', '}')
+            page = page.replace('..', '{')
+
+            return [page.encode()]
 
     elif path == '/logout':
         if 'HTTP_COOKIE' in environ:
@@ -51,7 +79,35 @@ def application(environ, start_response):
             un = cookies['username'].value
             gameDb.logout(un, win, lose)
         start_response('200 OK', headers)
-        return ['Logged out. <a href="/">Login</a>'.encode()]
+        return ['''
+        
+        <style>
+        div{
+        width: 450px;
+        height: 115px;
+        text-align: center;
+        margin-left:auto;
+        margin-right:auto;
+        font-size: 400%;
+        }
+        
+        h1{
+        text-align: center;
+        margin-left:auto;
+        margin-right:auto;
+        font-size: 250%;
+        }
+        </style>
+        
+        <br>
+        <br>
+
+
+        <div class="highlight3" style="background: linear-gradient(to bottom, lightblue 0%, white 80%)">Tic Tac Toe!</div><br>
+        
+        
+        
+        <h1>Logged out. <a href="/">Login</a></h1>'''.encode()]
 
     elif path == '/account':
          start_response('200 OK', headers)
@@ -141,7 +197,10 @@ def application(environ, start_response):
         gameId = gameService.createGame(gameDb, un)
         #page = htmlUtils.getGamePage(gameId, un, '?', False, False)
         #page = htmlUtils.getAccountPage(un, win, lose,gameId)
-        return ['User {} has successfully created a game. Go back to the account page and click \'Join an existing game\' to join your game! <a href="/account">Account</a>'.format(un).encode()]
+        page = htmlUtils.getCreatePage().format(un)
+        page = page.replace('...', '}')
+        page = page.replace('..', '{')
+        #return ['User {} has successfully created a game. Go back to the account page and click \'Join an existing game\' to join your game! <a href="/account">Account</a>'.format(un).encode()]
         return [page.encode()]
 
     else:
