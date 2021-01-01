@@ -200,7 +200,6 @@ def application(environ, start_response):
         page = htmlUtils.getCreatePage().format(un)
         page = page.replace('...', '}')
         page = page.replace('..', '{')
-        #return ['User {} has successfully created a game. Go back to the account page and click \'Join an existing game\' to join your game! <a href="/account">Account</a>'.format(un).encode()]
         return [page.encode()]
 
     else:

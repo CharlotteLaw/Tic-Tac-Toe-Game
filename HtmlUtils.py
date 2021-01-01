@@ -214,8 +214,8 @@ align:center;
 
 
 
-<h2 class="user1">User 1: {}</h2>
-<h2 class="user2">User 2: {}</h2>
+<h2 class="user1">User 1 (X): {}</h2>
+<h2 class="user2">User 2 (O): {}</h2>
 
 <h2>{}</h2>
 
@@ -461,7 +461,7 @@ align:center;
 
 
             <h1>{} successfully created a Tic Tac Toe game.</h1><br>
-            <h2>Click <a href="/account">account</a> to go to the account screen to start playing the game!</h2>
+            <h2>Click <a href="/account">account</a> to go to the account screen. Then, click 'Join an existing game' to start playing!</h2>
 
             '''
 
