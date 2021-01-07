@@ -1,3 +1,4 @@
+#This class is used to return all the webpage related code.
 class HtmlUtils:
 
     def __init__(self):

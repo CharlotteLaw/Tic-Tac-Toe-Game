@@ -1,3 +1,4 @@
+#This class represents the Board Game
 class BoardGame:
     def __init__(self):
         super().__init__()
@@ -17,7 +18,7 @@ class BoardGame:
     def getPositions(self):
         pass
 
-
+#This class represents Tic Tac Toe game play and logistics
 class BoardTicTacToe(BoardGame):
     def __init__(self):
         self.theBoard = [''] * 10

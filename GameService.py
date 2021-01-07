@@ -1,5 +1,6 @@
 from BoardGame import BoardTicTacToe
 
+#This class is used to store some functions that are helpful during for the game flow.
 class GameService:
 
     def __init__(self):
@@ -13,6 +14,7 @@ class GameService:
     def joinGame(self, gameDb, gameId, username):
         return gameDb.joinGame(username, gameId)
 
+    #x_win and o_win is a placeholder for future renovations.
     def getLatestGameStatus(self, gameDb, gameId):
         [game_id, user_x, user_o, next_turn, positions, x_win, o_win] = gameDb.getGame(gameId)
         gameBoard = BoardTicTacToe(positions.split(","))
@@ -25,7 +27,7 @@ class GameService:
         gameDb.saveGame(gameId, gameBoard.getPositions(), gameBoard.isWinner('X'), gameBoard.isWinner('O'), next_turn)
 
     def getListofGame(self, gameDb):
-        gameDb.getListofGame();
+        gameDb.getListofGame()
 
     def loadJoinableGames (self, gameDb, username):
         return gameDb.loadFirstJoinableGame(username)

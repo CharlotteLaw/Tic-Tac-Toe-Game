@@ -9,8 +9,8 @@ gameDb = GameDb()
 htmlUtils = HtmlUtils()
 gameService = GameService()
 
-#def envHelper(environ):
-
+#This function is the main event loop for the web application.
+#This function takes care of the game flow.
 def application(environ, start_response):
 
     headers = [('Content-Type', 'text/html; charset=utf-8')]
@@ -26,6 +26,8 @@ def application(environ, start_response):
         result = gameDb.registerUser(un, pw)
         start_response('200 OK', headers)
 
+        #I used ... and .. to work around some encoding issues relating to string concatenation.
+        #... represents } and .. represents {
         if result == True:
             page = htmlUtils.getRegisterPage1().format(un)
             page = page.replace('...', '}')
@@ -38,11 +40,6 @@ def application(environ, start_response):
             page = page.replace('...', '}')
             page = page.replace('..', '{')
             return [page.encode()]
-
-        #return [result.encode()]
-       # return [page.encode()]
-
-       # return [result.encode()]
 
     elif path == '/login' and un and pw:
         user = gameDb.login(un, pw)
@@ -126,6 +123,8 @@ def application(environ, start_response):
              win = 0
              lose = 0
 
+             #Win and lose is stored as a coookie but the game currently doesn't keep track of the win and lose score.
+             #This is merely a placeholder for future advancements.
              if 'HTTP_COOKIE' in environ:
                  [win_cookie, lose_cookie] = cookies['score'].value.split(':')
                  win = int(win_cookie)

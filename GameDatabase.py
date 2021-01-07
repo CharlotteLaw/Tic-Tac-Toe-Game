@@ -1,8 +1,10 @@
 import sqlite3
 import random
 
+#This class is used to perform database operations.
 class GameDb:
 
+    #This init function will create the database table (if it doesn't exist)
     def __init__(self):
         connection = sqlite3.connect('games.db')
         stmt = "SELECT name FROM sqlite_master WHERE type='table' AND name in ('users', 'games', 'join_games')"
@@ -19,6 +21,7 @@ class GameDb:
         connection.close()
         super()
 
+    #This function gets a new database connection everytime it is called.
     def getConn(self):
         return sqlite3.connect('games.db')
 
@@ -87,6 +90,7 @@ class GameDb:
         else:
             return game[0]
 
+    #This converts the positions array back into a string before storing it into the database.
     def saveGame(self, gameId, positions, x_win, o_win, next_turn):
         posStr = ''
         for pos in positions:
@@ -105,12 +109,13 @@ class GameDb:
         connection.commit()
         connection.close()
 
+    # This function returns the first joinable game from the database.
     def loadFirstJoinableGame(self, username):
         #game = self.connection.execute('SELECT * from join_games WHERE username != ?', [username]).fetchall()
         connection = self.getConn()
         game = connection.execute('SELECT * from join_games').fetchall()
 
-        # todo better
+        #If there is no game loaded, return 0.
         if game.__len__() == 0:
             return 0
         else:
