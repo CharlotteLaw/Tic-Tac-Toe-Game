@@ -1,4 +1,4 @@
-# cs043_final_project
+# Computer Science Final Project
 
 **About**
 This repository features all my files for my Computer Science final project. 
