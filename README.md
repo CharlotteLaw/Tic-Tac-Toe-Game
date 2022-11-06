@@ -4,5 +4,5 @@
 
 **My Project**: I designed a full stack tic tac toe game that runs on your local host server. 
 
-- Back End: Python (db, 
+- Back End: Python (DB API,  
 - Front End: HTML/CSS
