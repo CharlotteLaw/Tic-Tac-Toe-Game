@@ -1,5 +1,5 @@
 # Tic Tac Toe
-A full stack Tic Tac Toe game for 2 players that runs on your local host server. Register, login, and play against eachother on two different devices!
+A full stack Tic Tac Toe game for 2 players that runs on locally. Register, login, and play against eachother on two different devices!
 
 ## How it works
 
